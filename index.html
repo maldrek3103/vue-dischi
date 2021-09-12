@@ -17,13 +17,19 @@
   <div id="app">
     <header>
       <div class="container">
-        <img src="images/logo.png" />
+        <div class="row">
+          <img src="images/logo.png" />
+          <select v-model="selectedGenre">
+            <option>All</option>
+            <option v-for="genre in genreList"> {{genre}}</option>
+          </select>
+        </div>
       </div>
     </header>
     <main class="container">
       <section id="album-container">
 
-        <div class="card" v-for="album in albumSorting">
+        <div class="card" v-for="album in filteredAlbums">
           <img :src=" album.poster" :alt="album.title" />
           <h2 class="title">{{album.title}}</h2>
           <address class="author">{{album.author}}</address>
@@ -36,11 +42,6 @@
   </div>
 
 
-  <select name="" id="">
-    <option>All</option>
-    <option>Pop</option>
-    <option>Pop</option>
-  </select>
 
 
   <script src="js/script.js"></script>

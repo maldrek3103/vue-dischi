@@ -23,6 +23,11 @@ address {
   margin: 0 auto;
 }
 
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /* Header */
 
 header {
@@ -35,8 +40,13 @@ header {
   width: 100%;
 }
 
+
 header img {
   height: 50px;
+}
+
+select {
+width: 100px;  
 }
 
 /* Album */

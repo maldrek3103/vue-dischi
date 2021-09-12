@@ -6,10 +6,24 @@ const app = new Vue({
   el: '#app',
   data: {
     albums: [],
+    selectedGenre: 'All',
   },
   computed: {
     albumSorting() {
       return this.albums.sort((a, b) => { return a.year - b.year; })
+    },
+    genreList() {
+      const list = [];
+      this.albums.forEach((album) => {
+        if (!list.includes(album.genre)) list.push(album.genre);
+
+      });
+      return list;
+    },
+    filteredAlbums() {
+      const albums = this.albumSorting;
+      if (this.selectedGenre === 'All') return albums;
+      return albums.filter((album) => album.genre === this.selectedGenre);
     }
   },
   methods: {},
@@ -24,11 +38,3 @@ const app = new Vue({
 
 
 
-
-// {
-//   "poster": "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg",
-//   "title": "New Jersey",
-//   "author": "Bon Jovi",
-//   "genre": "Rock",
-//   "year": "1988"
-// },
